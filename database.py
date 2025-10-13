@@ -4,6 +4,9 @@ from sqlalchemy.exc import SQLAlchemyError
 import sys
 from dotenv import load_dotenv
 import os
+# import psycopg2
+# from psycopg2 import RealDictCursor
+# import time
 
 load_dotenv()
 
@@ -34,3 +37,16 @@ def get_db():
         yield db
     finally:
         db.close()
+
+# while True:
+
+#     try:
+#         conn = psycopg2.connect(host='127.0.0.1', database='fastapi', user='postgres',
+#                                 password='Reetik@2001', cursor_factory=RealDictCursor)
+#         cursor = conn.cursor()
+#         print("Database connection was successful!")
+#         break
+#     except Exception as error:
+#         print("Connecting to database failed")
+#         print("Error:",error)
+#         time.sleep(2)

@@ -1,6 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
-from typing import Optional
+from typing import Optional, Literal
 
 class UserCreate(BaseModel):
     email: EmailStr
@@ -41,3 +41,7 @@ class Post(PostBase):
 
     class Config:
         from_attributes = True
+
+class Vote(BaseModel):
+    post_id: int
+    dir: Literal[0, 1]
